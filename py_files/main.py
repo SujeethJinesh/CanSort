@@ -7,5 +7,5 @@ while 1:
         myData = arduinoSerialData.readline()
         if myData[:len('SERIAL IS AVAILABLE')] == 'SERIAL IS AVAILABLE':
             os.system('python3 image_capture3.py')
-        #while arduinoSerialData.inWaiting():
-        #    arduinoSerialData.readline()
+        while arduinoSerialData.inWaiting():
+            arduinoSerialData.readline()
