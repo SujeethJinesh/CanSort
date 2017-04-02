@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         outputTextView = (TextView) findViewById(R.id.output_text_view);
 
         recyclables = new HashSet<>(Arrays.asList("bottle", "plastic"));
-        compostables = new HashSet<>(Arrays.asList("apple", "clementine", "orange", "fruit", "tangerine", "mandarin", "food"));
+        compostables = new HashSet<>(Arrays.asList("apple", "clementine", "orange", "fruit", "tangerine", "mandarin", "food", "banana"));
         landfill = new HashSet<>(Arrays.asList("phone", "wrapper"));
 
         items = new ArrayList<>();
@@ -108,15 +109,26 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 protected void onPostExecute(RecognitionResult result) {
-                    String foundText = "Not yet identifiable!";
+                    boolean found = false;
+                    String foundText = "Trash :(";
                     for (Tag tag : result.getTags()) {
                         if (recyclables.contains(tag.getName())) {
-                            foundText = "Recycle!";
+                            foundText = "Recycle! :)";
+                            outputTextView.setTextColor(ResourcesCompat.getColor(getResources(), R.color.pukeGreen, null));
+                            found = true;
                         } else if (compostables.contains(tag.getName())) {
-                            foundText = "Compost!";
+                            foundText = "Compost! :)";
+                            outputTextView.setTextColor(ResourcesCompat.getColor(getResources(), R.color.blue, null));
+                            found = true;
                         } else if (landfill.contains(tag.getName())) {
-                            foundText = "Trash!";
+                            foundText = "Trash! :(";
+                            outputTextView.setTextColor(ResourcesCompat.getColor(getResources(), R.color.heartRed, null));
+                            found = true;
                         }
+                    }
+                    if (!found) {
+                        foundText = "Trash! :(";
+                        outputTextView.setTextColor(ResourcesCompat.getColor(getResources(), R.color.heartRed, null));
                     }
                     outputTextView.setText(foundText);
                 }
