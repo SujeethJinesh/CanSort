@@ -13,14 +13,15 @@ compost = {"apple", "clementine", "orange", "fruit", "tangerine", "mandarin", "f
 landfill = {"phone", "wrapper"}
 
 def analyze_image():
-#setup up cam to close when finished
+    #setup up cam to close when finished
+    print("analyzing image")
     with picamera.PiCamera() as camera:
         camera.resolution = (150, 150) #may want to change this
                                         #depending on speeds requirements
-        camera.capture("/home/pi/Desktop/CanSort/capturedImage.jpg")
+        camera.capture("/home/pi/Desktop/CanSort/py_files/capturedImage.jpg")
        
     model = clarifai_api.models.get('general-v1.3')
-    data = model.predict_by_filename(filename="/home/pi/Desktop/CanSort/capturedImage.jpg")
+    data = model.predict_by_filename(filename="/home/pi/Desktop/CanSort/py_files/capturedImage.jpg")
     
     found = False
     for concept in data["outputs"][0]["data"]["concepts"]:

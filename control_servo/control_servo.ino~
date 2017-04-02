@@ -30,12 +30,14 @@ void loop()
   long duration = pulseIn(ECHO_PIN,HIGH);
   long distance = (duration/2)/29.1;
   
-  if (Serial.available()) {
-    rval = (int) Serial.read();
-    dumpTrash();
-  }
   if(distance < 20) {
-    Serial.println("SERIAL IS AVAILABLE"); 
+    if (Serial.available()) {
+      rval = (int) Serial.read();
+      Serial.println("SERIAL IS AVAILABLE");
+      dumpTrash();
+    }
+    rservo.write(rval);                  // sets the servo position according to the scaled value 
+    delay(200);                         // waits for the servo to get there 
   }
 } 
 

@@ -13,7 +13,8 @@ compost = {"apple", "clementine", "orange", "fruit", "tangerine", "mandarin", "f
 landfill = {"phone", "wrapper"}
 
 def analyze_image():
-#setup up cam to close when finished
+    #setup up cam to close when finished
+    print("analyzing image")
     with picamera.PiCamera() as camera:
         camera.resolution = (150, 150) #may want to change this
                                         #depending on speeds requirements
@@ -47,4 +48,5 @@ def analyze_image():
         servoMovement.set_servos('landfill')
 
 if __name__ == '__main__':
+    print("got to main")
     analyze_image()

@@ -1,7 +1,7 @@
 import serial
 
 COMPOST_CONFIG = bytes([0])
-LANDFILL_CONIFG = bytes([90])
+LANDFILL_CONFIG = bytes([90])
 RECYCLING_CONFIG = bytes([180])
 
 def set_servos(can):
