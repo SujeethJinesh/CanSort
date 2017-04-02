@@ -1,0 +1,55 @@
+/**PAGE STRUCTURE**/
+html, body {
+  font-family: "Montserrat", sans-serif !important;
+  margin: 1em;
+  padding: 1em;
+  overflow: hidden; }
+
+body {
+  background-color: #FFFFFF;
+  background-repeat: repeat; }
+
+h2 {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 24px !important; }
+
+a {
+  color: #2C9FA3;
+  font-weight: bold;
+  text-decoration: none;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s; }
+
+a:hover {
+  color: #C3C3C3;
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s; }
+
+::selection {
+  background-color: #34BBBF !important;
+  color: #FFFFFF !important; }
+
+/**CONTENT**/
+.content {
+  color: #777777;
+  font-size: 14px;
+  padding-top: 0.5em;
+  margin: 6em; }
+
+.description {
+  position: relative;
+  left: 1em;
+  height: 50%;
+  width: 45%;
+  text-align: justify; }
+
+.everything {
+  margin: auto; }
+
+.chart {
+  position: relative;
+  top: -30em;
+  left: 50%;
+  width: 45%; }
+
+/*# sourceMappingURL=style.css.map */

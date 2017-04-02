@@ -1,3 +1,6 @@
 style.scss
 style.css.map
 .sass-cache
+venv
+*.pyc
+.DS_Store

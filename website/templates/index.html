@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CanSort</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:100,200">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='semantic.min.css') }}">
+    <script src="{{ url_for('static', filename='semantic.min.js') }}"></script>
+		<meta name="description" content="CanSort">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.2.0/papaparse.min.js"></script>
+	</head>
+
+	<section class="content">
+    <div class="everything">
+      <div class="description">
+        <h2>Description</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque blandit, sem et congue sagittis, dui lectus placerat eros, in faucibus purus purus at nunc. Nunc suscipit porta elit at pulvinar. Morbi tincidunt mollis enim, ultricies commodo sapien congue sit amet. Etiam mollis nunc in felis eleifend venenatis. In sagittis dui eu lectus suscipit, non facilisis lacus porta. Maecenas placerat varius elit, vel posuere nibh efficitur non. Aliquam in maximus nunc, eget blandit dui. Sed hendrerit consectetur condimentum. Cras posuere dui sed libero suscipit, ut vestibulum ligula condimentum. Suspendisse blandit pretium mi, vel tempor lectus egestas in. Phasellus porta porta felis sed congue. Morbi mattis vitae libero sit amet finibus.
+
+  Suspendisse quis est ex. Curabitur viverra nisi in metus pellentesque, at molestie eros porttitor. Sed lobortis id libero a posuere. Mauris eu posuere mauris. Donec tempus maximus ultricies. Donec non vulputate sem. Vivamus hendrerit consectetur tellus, non feugiat risus porttitor vel. Nam pharetra rhoncus ante pulvinar malesuada.
+
+  Praesent suscipit condimentum ipsum eu imperdiet. Donec molestie vestibulum vestibulum. Etiam auctor elit ligula, et ultrices dui faucibus in. Praesent finibus ex nec sem facilisis, a porttitor libero hendrerit. Curabitur tempor ac orci vitae varius. Nam tempus, mi tristique laoreet dictum, risus augue congue orci, at pharetra augue nulla nec elit. In finibus suscipit iaculis. Curabitur euismod facilisis sagittis. Fusce convallis arcu sed nisi sollicitudin, vel pharetra sem eleifend.</p>
+      </div>
+
+        <div class="chart">
+          <canvas id="myChart" width="100" height="100"></canvas>
+        </div>
+      </div>
+	</section>
+
+  <!--<input type="file" id="testdata.csv">-->
+<script>
+/*$.get(http://example.com/file.csv, function (data) {
+  Papa.parse(csvfile, {
+    header: true,
+    dynamicTyping: true,
+    complete: function(results) {
+      parsedData = results;
+    }
+  })
+});
+
+console.log(parsedData);
+</script></code>
+
+  <script>
+
+
+    $.get("localhost:5000/testdata.csv", function (data) {
+      Papa.parse(file, {
+        header: true,
+        dynamicTyping: true,
+        complete: function(results) {
+          parsedData = results;
+        }
+      })
+      console.log(results);
+    });
+
+
+
+  /*var parsedData;
+
+  function handleFileSelect(evt) {
+    var file = evt.target.files[0];
+
+    Papa.parse(file, {
+      header: true,
+      dynamicTyping: true,
+      complete: function(results) {
+        parsedData = results;
+      }
+    });
+  }*/
+
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["Philadelphia", "Princeton", "Manhattan", "San Francisco"],
+          datasets: [{
+              label: '# of items',
+              data: [603, 351, 683, 892],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+  </script>
+</html>
