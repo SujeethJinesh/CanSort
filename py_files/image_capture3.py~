@@ -48,5 +48,4 @@ def analyze_image():
         servoMovement.set_servos('landfill')
 
 if __name__ == '__main__':
-    print("got to main")
     analyze_image()
