@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         outputTextView = (TextView) findViewById(R.id.output_text_view);
 
         recyclables = new HashSet<>(Arrays.asList("bottle", "plastic"));
-        compostables = new HashSet<>(Arrays.asList("apple", "clementine", "orange", "fruit", "tangerine", "mandarin", "food", "banana"));
+        compostables = new HashSet<>(Arrays.asList("apple", "clementine", "orange", "fruit", "tangerine", "mandarin", "food", "banana", "coffee", "cup"));
         landfill = new HashSet<>(Arrays.asList("phone", "wrapper"));
 
         items = new ArrayList<>();
@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     boolean found = false;
                     String foundText = "Trash :(";
                     for (Tag tag : result.getTags()) {
+                        System.out.println(tag.getName());
                         if (recyclables.contains(tag.getName())) {
                             foundText = "Recycle! :)";
                             outputTextView.setTextColor(ResourcesCompat.getColor(getResources(), R.color.pukeGreen, null));
